@@ -3,13 +3,13 @@
 class Date {
 public:
   enum Month { jan = 1, feb, mar, apr, may, jun, ju, aug, sep, oct, nov, dec };
-  class Bad_date {};
+  class Bad_date {}; // класс исключений
   Date(int dd = 0, Month mm = Month(0), int yy = 0);
 
   int day() const;
   Month month() const;
   int year() const;
-  std::string string_rep() const;
+  std::string string_rep() const; // string представление
   void char_rep(char s[]) const; // представление С строкой
 
   static void set_default(int, Month, int);
