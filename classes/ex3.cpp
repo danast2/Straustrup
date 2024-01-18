@@ -24,9 +24,9 @@ void Date::compute_cache_value() const { cache = "filled cache"; }
 
 int main() {
   Date d3;
-  // const Date d4;
+  const Date d4;
   std::string s3 = d3.string_rep();
   std::cout << s3;
-  // std::string s4 = d4.string_rep(); // правильно!
+  std::string s4 = d4.string_rep(); // правильно!
   return 0;
 }
