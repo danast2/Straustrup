@@ -92,12 +92,34 @@ Date::Date(int dd, Month mm, int yy) {
   while (std::cin) {
     Date d;
     try {
-      std::cin >> d;
+      std::cin >> d; // предполагается, что >> уже переопределана
     } catch (Date::Bad_date) { // обработка ошибки
       continue;
     }
-    aa.
+    a.push_back(d);
   }
 }*/
+
+inline int Date::day() const {
+    return d;
+}
+
+Date& Date::add_month(int n) {
+    if (n == 0){return *this;}
+    if (n > 0){
+        int delta_y = n / 12;
+        int mm = m + n % 12;
+        if (12 < mm){ // int(dec) == 12;
+            delta_y++;
+            mm-=12;
+            //работа со случаями, когда день d не существует для класса Month
+            y += delta_y;
+            m = Month(mm);
+            return *this;
+        }
+        //отрицательное n
+        return *this;
+    }
+}
 
 int main() { return 0; }
