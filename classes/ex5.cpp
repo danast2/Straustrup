@@ -43,6 +43,21 @@ void func(Date &d) {
   std::cout << "day after: " << d.day() << '\n';
 }
 
+//Функции поддержки (helper functions)
+/*int diff(Date a, Date b); //кол-во дней между a и b
+//int lepyaer(int y);
+Date next_weekday(Date d);
+Date next_saturday(Date d);*/
+
+//мы бы могли установить явно связь функций поддержки и класса  Date
+/*namespace Chrono{
+    class Date {................};
+    int diff(Date a, Date b); //кол-во дней между a и b
+    int lepyaer(int y);
+    Date next_weekday(Date d);
+    Date next_saturday(Date d);
+}*/
+
 int leapyaer(int &yy) {
   // тут функция проверяет год, если високосный, то => return 1, если нет, то
   // return 0
@@ -88,21 +103,22 @@ Date::Date(int dd, Month mm, int yy) {
   d = dd;
 }
 
-/*void fill(std::vector<Date>& a){
+void fill(std::vector<Date>& a){
   while (std::cin) {
     Date d;
     try {
-      std::cin >> d; // предполагается, что >> уже переопределана
+      //std::cin >> d; // предполагается, что >> уже переопределана
     } catch (Date::Bad_date) { // обработка ошибки
       continue;
     }
     a.push_back(d);
   }
-}*/
+}
 
 inline int Date::day() const {
     return d;
 }
+
 
 Date& Date::add_month(int n) {
     if (n == 0){return *this;}
