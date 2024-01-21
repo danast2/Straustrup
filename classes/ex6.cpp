@@ -55,6 +55,18 @@ struct Z{
 
 Z z;
 
+//aa, bb, (cc), dd  - конструируются в указанном порядке, а удаляются dd, (cc), bb, aa
+void func(int n){
+    Table aa;
+    Table bb;
+    if(n > 0){
+        Table cc;
+        //.....
+    }
+    Table dd;
+    //...
+}
+
 int main(){
 
     return 0;
