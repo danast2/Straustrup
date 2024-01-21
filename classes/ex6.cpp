@@ -47,11 +47,15 @@ struct Y{
 struct Z{
     const int a;
     const int& r;
-    Z();;
+    Z() : a(10), r(a){
+        std::cout << &a << std::endl;
+        std::cout << &r << std::endl;
+    }
 };
 
-Z::Z() : a(0), r = &a {}
+Z z;
 
 int main(){
+
     return 0;
 }
