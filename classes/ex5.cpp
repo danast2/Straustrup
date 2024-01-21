@@ -1,4 +1,6 @@
 #include <iostream>
+//#include <istream>
+//#include <ostream>
 #include <string>
 #include <vector>
 
@@ -137,5 +139,26 @@ Date& Date::add_month(int n) {
         return *this;
     }
 }
+
+//перегруженные операции
+inline bool operator==(Date a, Date b){ // проверка на равенство
+    return a.day() == b.day() && a.month() == b.month() && a.year() == b.year();
+}
+
+bool operator !=(Date, Date); // не равно
+bool operator<(Date, Date);
+bool operator<(Date, Date);
+//......
+Date& operator++(Date & d); // увеличить на 1 день
+Date& operator--(Date & d); //уменьшить на 1 день
+
+Date& operator+=(Date & d, int n); //увеличить на n
+Date& operator-=(Date & d, int n); //уменьшить на n
+
+Date& operator+(Date & d, int n); //прибавить n  дней
+Date& operator-(Date & d, int n); //уменьшить n дней
+
+//(ostream&, Date d); // вывести d
+//istream & operator>> (istream&, Date D); //считатб d
 
 int main() { return 0; }
