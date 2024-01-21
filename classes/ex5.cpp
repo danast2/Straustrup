@@ -149,7 +149,11 @@ bool operator !=(Date, Date); // не равно
 bool operator<(Date, Date);
 bool operator<(Date, Date);
 //......
-Date& operator++(Date & d); // увеличить на 1 день
+Date& operator++(Date & d){// увеличить на 1 день
+    d.add_day(1);
+    return d;
+}
+
 Date& operator--(Date & d); //уменьшить на 1 день
 
 Date& operator+=(Date & d, int n); //увеличить на n
