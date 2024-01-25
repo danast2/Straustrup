@@ -9,14 +9,31 @@ class Table{
     Name* p;
     size_t sz;
 public:
-    Table(size_t s = 15){
-        p = new Name[sz = s];
-    }
+    Table(const Table&); // копирующий конструктор
+    Table& operator= (const Table&); //присваивание
     ~Table(){delete[] p;}
 
     Name* lookup(const char*);
     bool insert(Name*);
 };
+
+Table::Table(const Table &t) { // копирующий конструктор
+    p = new Name[sz = t.sz];
+    for (int i = 0; i < sz; i++){
+        p[i] = t.p[i];
+    }
+}
+
+Table& Table::operator=(const Table &t) {
+    if(this!= &t){ //помним о возможности самоприсваивания t = t
+        delete[] p;
+        p = new Name[sz = t.sz];
+        for (int i = 0; i < sz; i++){
+            p[i] = t.p[i];
+        }
+    }
+    return *this;
+}
 
 struct Tables{
     int i;
@@ -56,15 +73,24 @@ struct Z{
 Z z;
 
 //aa, bb, (cc), dd  - конструируются в указанном порядке, а удаляются dd, (cc), bb, aa
-void func(int n){
+void func(int n) {
     Table aa;
     Table bb;
-    if(n > 0){
+    if (n > 0) {
         Table cc;
         //.....
     }
     Table dd;
     //...
+}
+
+//копирование объектов
+void h(){
+    Table t1;
+    Table t2 = t1; // копирующая инициализация (проблема)
+
+    Table t3;
+    t3 = t2; // копирующее присваивание (проблема)
 }
 
 int main(){
