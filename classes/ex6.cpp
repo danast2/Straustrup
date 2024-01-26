@@ -1,7 +1,7 @@
 #include <iostream>
 
 class Name{
-    const char* s;
+    const char* str;
     //....
 };
 
@@ -9,6 +9,7 @@ class Table{
     Name* p;
     size_t sz;
 public:
+    Table(size_t s = 15) {p = new Name[sz = s];}
     Table(const Table&); // копирующий конструктор
     Table& operator= (const Table&); //присваивание
     ~Table(){delete[] p;}
