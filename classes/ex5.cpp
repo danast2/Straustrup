@@ -165,4 +165,4 @@ Date& operator-(Date & d, int n); //уменьшить n дней
 //(ostream&, Date d); // вывести d
 //istream & operator>> (istream&, Date D); //считатб d
 
-int main() { return 0; }
+//int main() { return 0; }

@@ -1,4 +1,5 @@
 #include <iostream>
+#include "ex5.cpp"
 
 class Name{
     const char* str;
@@ -86,12 +87,25 @@ void func(int n) {
 }
 
 //копирование объектов
-void h(){
+/*void h(){
     Table t1;
     Table t2 = t1; // копирующая инициализация (проблема)
 
     Table t3;
     t3 = t2; // копирующее присваивание (проблема)
+}*/
+
+class Club{
+    std::string name;
+    Table members;
+    Table officers;
+    Date founded;
+    //....
+    Club (const std::string &n, Date fd);
+};
+
+Club::Club(const std::string &n, Date fd):name(n), founded(fd){
+    //...
 }
 
 int main(){
