@@ -95,6 +95,11 @@ void h(){
 }
 
 int main(){
+    Table* p = new Table;
+    Table* q = new Table;
 
+    delete p;
+    //delete p; двойное освобождение памяти ведет к ошибке при выполнения программы
+    delete q;
     return 0;
 }
