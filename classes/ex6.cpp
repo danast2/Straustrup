@@ -108,6 +108,18 @@ Club::Club(const std::string &n, Date fd):name(n), founded(fd){
     //...
 }
 
+class Person {
+    std::string name;
+    std::string address;
+    //..........
+    Person(const Person&);
+    Person(const std::string &n, const std::string &a);
+};
+
+Person::Person(const std::string &n, const std::string &a):name(n) {
+    address = a;
+}
+
 int main(){
     Table* p = new Table;
     Table* q = new Table;
