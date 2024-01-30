@@ -5,6 +5,9 @@ private:
     double re, im;
 public:
     Complex(double r, double i):re(r), im(i){}
+    Complex():re(0), im(0){}
+    Complex(double r):re(r), im(0){}
+    Complex(const Complex& c):re(c.re), im(c.im){}
     Complex operator+(Complex) const;
     Complex operator*(Complex) const;
     Complex& operator+=(Complex);
