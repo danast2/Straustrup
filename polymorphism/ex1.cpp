@@ -4,14 +4,13 @@ class Complex{
 private:
     double re, im;
 public:
-    Complex(double r, double i):re(r), im(i){}
-    Complex():re(0), im(0){}
-    Complex(double r):re(r), im(0){}
-    Complex(const Complex& c):re(c.re), im(c.im){}
+    Complex(double r = 0, double i = 0):re(r), im(i){}
     Complex operator+(Complex) const;
     Complex operator*(Complex) const;
     Complex& operator+=(Complex);
     Complex& operator*=(Complex) ;
+    double real()const;
+    double image()const;
 };
 
 Complex Complex::operator*(Complex c) const{
@@ -31,6 +30,14 @@ inline Complex& Complex::operator*=(Complex c) {
     this->re *= c.re;
     this->im *= c.im;
     return *this;
+}
+
+double Complex::real() const {
+    return this->re;
+}
+
+double Complex::image() const {
+    return this->im;
 }
 
 int main(){
