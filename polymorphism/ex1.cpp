@@ -7,6 +7,8 @@ public:
     Complex(double r, double i):re(r), im(i){}
     Complex operator+(Complex) const;
     Complex operator*(Complex) const;
+    Complex& operator+=(Complex);
+    Complex& operator*=(Complex) ;
 };
 
 Complex Complex::operator*(Complex c) const{
@@ -17,6 +19,20 @@ Complex Complex::operator+(Complex c) const {
     return Complex(this->re +  c.re, this->im + c.im);
 }
 
+inline Complex& Complex::operator+=(Complex c) {
+    this->re += c.re;
+    this->im += c.im;
+}
+
+inline Complex& Complex::operator*=(Complex c) {
+    this->re *= c.re;
+    this->im *= c.im;
+    return *this;
+}
+
 int main(){
+    Complex a1(3 , 4);
+    Complex a2(2 , 1);
+    a1+=a2;
     return 0;
 }
