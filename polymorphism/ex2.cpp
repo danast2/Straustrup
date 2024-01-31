@@ -10,6 +10,7 @@ public:
     operator int() const {return v;} //операция приведения к типу int
 };
 
+
 int main(){
     return 0;
 }
