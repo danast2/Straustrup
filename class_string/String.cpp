@@ -6,7 +6,18 @@ class String{
     class Cref; // ссылка на char
 public:
     class Range{}; // для исключений
+    String();
+    String(const char*);
+    String(const String&);
+    String operator=(const char*);
+    String operator=(const String&);
+    ~String();
 };
+
+String::String()
+{
+    rep = new Srep(0, "");
+}
 
 struct String::Srep{
     char *s;
@@ -32,6 +43,9 @@ struct String::Srep{
         }
         strcpy(s, p);
     }
+private://предотврашение копирования
+    Srep(const Srep&);
+    Srep& operator=(const Srep&);
 };
 
 
