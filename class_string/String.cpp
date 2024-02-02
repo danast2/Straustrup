@@ -19,6 +19,11 @@ String::String()
     rep = new Srep(0, "");
 }
 
+String::String(const String& x) {
+    x.rep->n++;
+    rep = x.rep;
+}
+
 struct String::Srep{
     char *s;
     int sz;
