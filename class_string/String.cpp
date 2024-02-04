@@ -14,16 +14,6 @@ public:
     ~String();
 };
 
-String::String()
-{
-    rep = new Srep(0, "");
-}
-
-String::String(const String& x) {
-    x.rep->n++;
-    rep = x.rep;
-}
-
 struct String::Srep{
     char *s;
     int sz;
@@ -52,6 +42,24 @@ private://предотврашение копирования
     Srep(const Srep&);
     Srep& operator=(const Srep&);
 };
+
+String::String()
+{
+    rep = new Srep(0, "");
+}
+
+String::String(const String& x) {
+    x.rep->n++;
+    rep = x.rep; //разделяемое представление
+}
+
+String::~String(){
+    if(--rep->n == 0) delete rep;
+};
+
+String& String::operator=(const char *) {}
+
+
 
 
 
