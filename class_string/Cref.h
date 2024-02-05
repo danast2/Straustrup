@@ -1,4 +1,5 @@
-#pragma once
+#ifndef CLASS_STRING_CREF_H
+#define CLASS_STRING_CREF_H
 #include "String.cpp"
 
 class Cref{
@@ -13,3 +14,5 @@ public:
     operator char() const {s.check(i); return s.read(i);} // выдает значение
     void operator=(char c) {s.write(i, c);}
 };
+
+#endif //CLASS_STRING_CREF_H

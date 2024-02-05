@@ -1,4 +1,6 @@
 #include <iostream>
+#include <ostream>
+#include <istream>
 #include "Srep.h"
 #include "Cref.h"
 
@@ -25,8 +27,10 @@ public:
     Cref operator[] (int i)
     {
         check (i);
-        //return Cref(*this , i); // todo не ищет почему-то ?конструктор?
-        return Cref();
+        // todo 
+        //проблема "Main file cannot be included recursively when building a preamble"
+        return Cref(*this , i);
+        //return Cref();
     }
     char operator[] (int i) const
     {
@@ -36,7 +40,32 @@ public:
     {
         return rep->sz;
     }
+
+    String& operator+=(const String&);
+    String& operator+=(const char*);
+
+    friend std::ostream& operator<<(std::ostream, const String&);
+    friend std::istream& operator>>(std::istream, const String&);
+
+    friend bool operator==(const String& x, const char* s){
+        return strcmp(x.rep->s, s) == 0;
+    }
+
+    friend bool operator==(const String& x, const String& y){
+        return strcmp(x.rep->s, y.rep->s) == 0;
+    }
+
+    friend bool operator!=(const String& x, const char* s){
+        return strcmp(x.rep->s, s) != 0;
+    }
+
+    friend bool operator!=(const String& x, const String& y){
+        return strcmp(x.rep->s, y.rep->s) != 0;
+    }
 };
+
+String operator+(const String&, const String&);
+String operator+(const String&, const char*);
 
 String::String()
 {
