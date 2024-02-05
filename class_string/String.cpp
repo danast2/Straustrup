@@ -5,12 +5,15 @@ class String{
     Srep* rep;
     class Cref; // ссылка на char
 public:
+    void check(int i) const {
+        if (i < 0 || rep->sz <= i) throw Rangee();
+    }
     class Range{}; // для исключений
     String();
     String(const char*);
     String(const String&);
-    String operator=(const char*);
-    String & operator=(const String&);
+    String& operator=(const char*);
+    String& operator=(const String&);
     ~String();
 };
 
@@ -69,7 +72,6 @@ String::String(const char * s) {
 }
 
 
-//todo
 String& String::operator=(const char * s) {
     if(rep->n == 1){
         rep->assign(strlen(s),s); //используем старый Srep
@@ -79,10 +81,6 @@ String& String::operator=(const char * s) {
     }
     return *this;
 }
-
-
-
-
 
 int main(){
     return 0;
