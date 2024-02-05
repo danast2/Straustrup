@@ -1,10 +1,11 @@
 #include <iostream>
 #include "Srep.h"
+#include "Cref.h"
 
 class String{
     //struct Srep; // представление
     Srep* rep;
-    class Cref; // ссылка на char
+    //class Cref; // ссылка на char
 public:
 
     class Range{}; // для исключений
@@ -21,11 +22,21 @@ public:
     char read (int i) const {return rep->s [i] ; }
     void write (int i, char c) {rep=rep->get_own_copy(); rep->s [i]=c; }
 
-    Cref operator[] (int i) {check (i) ; return Cref(*this, i) ; }
-    char operator[] (int i) const {check (i) ; return rep->s[i] ; }
-    int size () const {return rep->sz; }
+    Cref operator[] (int i)
+    {
+        check (i);
+        //return Cref(*this , i); // todo не ищет почему-то ?конструктор?
+        return Cref();
+    }
+    char operator[] (int i) const
+    {
+        check (i) ; return rep->s[i];
+    }
+    int size () const
+    {
+        return rep->sz;
+    }
 };
-
 
 String::String()
 {
@@ -63,23 +74,4 @@ String& String::operator=(const char * s) {
     return *this;
 }
 
-class String::Cref{
-    friend class String;
-    String& s;
-    int i;
 
-    Cref(String& ss, int ii): s(ss), i(ii){}
-    Cref(const Cref& r): s(r.s), i(r.i){}
-    Cref();
-public:
-    operator char() const {s.check(i); return s.read(i);} // выдает значение
-    void operator=(char c) {s.write(i, c);}
-};
-
-void f(String s, const String& r){
-    char c1 = s[1]; //c1 = s.operator[](1).operator char()
-    s[1] = 'c';
-
-    char c2 = r[1]; //c1 = s.operator[](1).operator char()
-    s[1] = 'd';
-}
