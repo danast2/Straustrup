@@ -10,7 +10,7 @@ public:
     String(const char*);
     String(const String&);
     String operator=(const char*);
-    String operator=(const String&);
+    String & operator=(const String&);
     ~String();
 };
 
@@ -57,7 +57,28 @@ String::~String(){
     if(--rep->n == 0) delete rep;
 };
 
-String& String::operator=(const char *) {}
+String& String::operator=(const String& x) {
+    x.rep->n++; // защита от st = st
+    if(--rep->n==0) delete rep;
+    rep = x.rep; //разделяемое представление
+    return *this;
+}
+
+String::String(const char * s) {
+    rep = new Srep(strlen(s), s);
+}
+
+
+//todo
+String& String::operator=(const char * s) {
+    if(rep->n == 1){
+        rep->assign(strlen(s),s); //используем старый Srep
+    } else{
+        rep->n--;
+        rep = new Srep(strlen(s), s); // используем новый Srep
+    }
+    return *this;
+}
 
 
 
