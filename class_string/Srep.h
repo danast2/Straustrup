@@ -26,7 +26,7 @@ struct Srep{
         }
         strcpy(s, p);
     }
-private://предотврашение копирования
+private://предотвращение копирования
     Srep(const Srep&);
     Srep& operator=(const Srep&);
 };
