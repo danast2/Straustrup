@@ -1,7 +1,3 @@
-//
-// Created by Даниил Асташов on 05.02.2024.
-//
-
 #ifndef CLASS_STRING_SREP_H
 #define CLASS_STRING_SREP_H
 
