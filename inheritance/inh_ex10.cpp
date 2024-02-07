@@ -47,3 +47,7 @@ protected:
 private:
     //данные для slider
 };
+
+class Ival_dial: public Ival_box, protected BBwindow{/*.....*/};
+class Flashing_ival_slider: public Ival_slider{/*.....*/};
+class Popup_ival_slider:public Ival_slider{/*.....*/};
