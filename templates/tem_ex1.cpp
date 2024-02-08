@@ -22,6 +22,23 @@ public:
 использовать так же, как имя любого другого класса. Например:
  */
 
+/*члены шаблонных классов сами являются шаблонами, параметризируемыми с помощью параметров шаблона класса. Когда ф-ции члены
+ * определяются вне тела определения шаблона, они должны явным образом указываться как шаблоны. Например:*/
+
+template<class C> struct String<C>::Srep{
+    C* s; //указатель на элементы
+    int sz; // число элементов
+    int n; //подсчет ссылок
+    //...............
+    Srep(int s, C){/*...*/}
+};
+
+template<class C> C String<C>:: read (int i) const {return rep->s[i];}
+
+template <class C> String<C>::String() {
+    rep = new Srep(0, C());
+}
+
 String<char> cs;
 String<unsigned char> us;
 String<wchar_t> ws;
