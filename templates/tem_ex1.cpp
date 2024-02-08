@@ -26,7 +26,7 @@ public:
  */
 
 
-String<char> cs;
+
 String<unsigned char> us;
 String<wchar_t> ws;
 
@@ -75,6 +75,12 @@ template <class C> String<C>::String() {
     Rep = new Srep(0, C());
 }*/
 
+
+String<char> cs;
+void func(){
+    String<Jchar> jss;
+    cs = "Какой код сгенерировать, решает компилятор";
+}
 
 
 
