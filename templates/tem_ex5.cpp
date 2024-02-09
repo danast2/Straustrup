@@ -29,7 +29,7 @@ void foo(){
 template<class T, class U>T implict_cast(U u){return u;}
 
 void g(int i){
-    //implict_cast(i); errror невозможно вывести T 
+    //implict_cast(i); errror невозможно вывести T
     implict_cast<double>(i); //T есть double, U есть int (ф-ция возвращает T => происходит преобразование)
     implict_cast<char, double>(i); //T есть char, U есть double (ф-ция возвращает T => происходит преобразование)
     //implict_cast<char*, int>(i); //T есть char*, U есть int, error, невозможно привести int к char* (ф-ция возвращает T => происходит преобразование)
