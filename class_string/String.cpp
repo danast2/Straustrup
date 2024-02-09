@@ -29,8 +29,8 @@ public:
         check (i);
         // todo 
         //проблема "Main file cannot be included recursively when building a preamble"
-        return Cref(*this , i);
-        //return Cref();
+        //return Cref(*this , i);
+        return Cref();
     }
     char operator[] (int i) const
     {
