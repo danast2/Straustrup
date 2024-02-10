@@ -44,3 +44,21 @@ template<class C> bool Basic_ops<C>::operator==(const C & a) const {
     }
     return true;
 }
+
+//Другой техникой разделения контейнеров и операций является их комбинирование
+// через параметры шаблонов (а не использование наследования)
+
+template<class T, class C> class Mcontainer{
+    C elements;
+public:
+    T& operator[](size_t i) {return elements;}
+
+    //friend bool operator==<>(const Mcontainer&, const Mcontainer&);
+    //friend bool operator!=<>(const Mcontainer&, const Mcontainer&);
+    //..............
+};
+
+template <class T> class My_array{/*........*/};
+Mcontainer<double, My_array<double> > me;
+
+//Класс, генерируемый из шаблона класса, является обычным классом. Следовательно, он может иметь дружественные ф-ции.
