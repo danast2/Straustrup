@@ -1,0 +1,11 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     SimpliestSmartPointer
+relocations:
+  - { offsetInCU: 0x2C5F, offset: 0x2C5F, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0x0, symBinAddr: 0x100003CB0, symSize: 0x110 }
+  - { offsetInCU: 0x2D0D, offset: 0x2D0D, size: 0x8, addend: 0x0, symName: __ZN12SmartPointerIiEC1EPi, symObjAddr: 0x110, symBinAddr: 0x100003DC0, symSize: 0x34 }
+  - { offsetInCU: 0x2D43, offset: 0x2D43, size: 0x8, addend: 0x0, symName: __ZNK12SmartPointerIiE11get_pointerEv, symObjAddr: 0x144, symBinAddr: 0x100003DF4, symSize: 0x18 }
+  - { offsetInCU: 0x2D67, offset: 0x2D67, size: 0x8, addend: 0x0, symName: __ZN12SmartPointerIiED1Ev, symObjAddr: 0x15C, symBinAddr: 0x100003E0C, symSize: 0x2C }
+  - { offsetInCU: 0x2D8F, offset: 0x2D8F, size: 0x8, addend: 0x0, symName: __ZN12SmartPointerIiEC2EPi, symObjAddr: 0x194, symBinAddr: 0x100003E44, symSize: 0x20 }
+  - { offsetInCU: 0x2DC5, offset: 0x2DC5, size: 0x8, addend: 0x0, symName: __ZN12SmartPointerIiED2Ev, symObjAddr: 0x1B4, symBinAddr: 0x100003E64, symSize: 0x50 }
+...
