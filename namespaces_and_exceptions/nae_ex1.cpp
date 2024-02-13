@@ -31,7 +31,7 @@ namespace Parser {
 //вынос реализации из пр-ва имен
 double Parser::expr(bool) {/*.....*/}
 double Parser::prim(bool get) {/*.....*/}
-double Parser::term(bool get) {/*.....*/}
+//double Parser::term(bool get) {/*.....*/}
 
 namespace Lexer{
     enum Token_value{
