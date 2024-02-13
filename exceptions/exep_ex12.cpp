@@ -25,8 +25,7 @@ void fnd(Tree *p, const strings s) {
 Tree *find(Tree *p, const string& s) {
     try {
         fnd(p, s);
-        }
-        catch (Tree * q) // q->str==s
+    }catch (Tree * q) // q->str==s
         {
             return q;
         }
