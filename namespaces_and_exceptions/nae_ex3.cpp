@@ -37,43 +37,35 @@
 }*/
 
 
-double Parser::print (bool get){
+double Parser::prim(bool get) {
+    // использовать get token из Lexer
+    // использовать currtok из Lexer
+    // использовать error из Error
+    using Lexer::get_token;
+    using Lexer::curr_tok;
+    using Error::error;
+    if (get) get_token();
+    switch (curr_tok){
+        case Lexer::NUMBER:
+            get_token();
+            return Lexer::number_value;
+        case Lexer::NAME: {
+            double v = table[Lexer::string_value]
+            if (get_token() == Lexer::ASSIGN) v = expr(true);
+            return v;
+        }
+        case Lexer::MINUS:
+            return -prim(true);
+        case Lexer::LP: {
+            double e = expr(true);
+            if (curr_tok != Lexer::RP) return error(") expected");
+            get_token(); // пропустить скобку ')'
+            return e;
+        }
+        case Lexer::END:
+            return 1;
+        default:
+            return error("primary expected");
+    }
 
-} //обработка первичных выражений
-    using Lexer::get_token ;
-using Lexer: : currtok;
-using Error: : error;
-if {get) getjoken () ;
-switch {currtok)
-// использовать get token из Lexer
-// использовать currtok из Lexer
-// использовать error из Error
-case Lexer: : NUMBER:
-gettoken () ;
-return Lexer: -.number value;
-case Lexer: : NAME:
-{
-// константа с плавающей запятой
-doubled v = table [Lexer:
-ifigettoken () == Lexer:
-return v;
-} ^
-case Lexer: : MINUS:
-return -prim (true) ;
-case Lexer: : LP:
-{
-: stringvalue] ;
-.ASSIGN) v = expr(true)
-//унарный минус
-double e=expr (true) ;
-if(curr_tok ! = Lexer: :RP) return error(") expected") ;
-gettoken () ; // пропустить скобку ')'
-return e;
-}
-:END:
-case Lexer:
-return 1;
-default:
-return error ("primary expected"
-}
 }

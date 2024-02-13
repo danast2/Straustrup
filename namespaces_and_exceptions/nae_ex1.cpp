@@ -21,6 +21,8 @@ namespace Parser {
 
     double term(bool get);
 
+
+
 }
 
 /*Функция expr () должна быть сначала объявлена, а определена потом из-за
