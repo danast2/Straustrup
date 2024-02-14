@@ -69,3 +69,23 @@ double Parser::prim(bool get) {
     }
 
 }
+
+double Parser::term(bool get) {
+    double left = prim(get);
+
+    for (;;) {
+        switch (curr_tok) {
+            case Lexer::MUL:
+                left*= prim(true);
+                break;
+            case Lexer::DIV:
+                if(double d = prim(true)){
+                    left /= d;
+                    break;
+                }
+                throw error("divide by 0");
+            default:
+                return left;
+        }
+    }
+}
