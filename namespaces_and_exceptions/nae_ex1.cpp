@@ -5,7 +5,7 @@
 калькулятора (§6.1.1), относящиеся к синтаксическому анализатору (парсеру),
 можно поместить в одно пространство имен Parser:*/
 #include <string>
-
+#include <iostream>
 
 /*Пространство имен формирует свою собственную область видимости. Таким
         образом, пространство имен является одновременно и фундаментальной, и
@@ -21,6 +21,16 @@ namespace Exception{
         return message;
     }
 };
+
+//по хорошему, именно это должно использоваться вместо Exceptions
+namespace Error{
+    int no_of_errors;
+    double error(const char* s){
+        std::cerr << "error: " << s << '\n';
+        ++no_of_errors;
+        return 1;
+    }
+}
 
 namespace Lexer{
     enum Token_value{
