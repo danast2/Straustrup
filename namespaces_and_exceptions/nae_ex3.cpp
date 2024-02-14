@@ -41,9 +41,9 @@ double Parser::prim(bool get) {
     // использовать get token из Lexer
     // использовать currtok из Lexer
     // использовать error из Error
-    using Lexer::get_token;
-    using Lexer::curr_tok;
-    using Error::error;
+    //using Lexer::get_token;
+    //using Lexer::curr_tok;
+    //using Error::error;
     if (get) get_token();
     switch (curr_tok){
         case Lexer::NUMBER:
@@ -58,14 +58,14 @@ double Parser::prim(bool get) {
             return -prim(true);
         case Lexer::LP: {
             double e = expr(true);
-            if (curr_tok != Lexer::RP) return error(") expected");
-            get_token(); // пропустить скобку ')'
+            if (curr_tok != Lexer::RP)  throw error(") expected"); // пропустить скобку ')'
+            get_token();
             return e;
         }
         case Lexer::END:
             return 1;
         default:
-            return error("primary expected");
+            throw error("asd");
     }
 
 }

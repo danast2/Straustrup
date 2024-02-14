@@ -15,8 +15,8 @@
 свои пространства имен*/
 
 namespace Exception{
-    char* message;
-    char* error(char* msg){
+    std::string message;
+    std::string error(std::string msg){
         message = msg;
         return message;
     }
